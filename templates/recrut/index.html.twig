@@ -1,0 +1,19 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Recrutement{% endblock %}
+
+{% block body %}
+<div class="container">
+<div class="mt-5">
+<img src="img/job2.jpg" class="img-fluid" alt="">
+</div>
+<h2 class="mt-5">Rejoignez-nous :</h2>
+<hr class="">
+{% for recrut in results %}
+<div class="col sm-4">
+<h4 class="mt-5">{{ recrut.poste | capitalize }}</h4>
+<p>{{ recrut.description | capitalize }}</p>
+</div>
+{% endfor %}
+</div>
+{% endblock %}
