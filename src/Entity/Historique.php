@@ -21,6 +21,11 @@ class Historique
      */
     private $text;
 
+    /**
+     * @ORM\Column(type="integer", nullable=true)
+     */
+    private $annee;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -34,6 +39,18 @@ class Historique
     public function setText(?string $text): self
     {
         $this->text = $text;
+
+        return $this;
+    }
+
+    public function getAnnee(): ?int
+    {
+        return $this->annee;
+    }
+
+    public function setAnnee(?int $annee): self
+    {
+        $this->annee = $annee;
 
         return $this;
     }

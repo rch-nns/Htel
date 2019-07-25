@@ -1,0 +1,52 @@
+{% extends 'base.html.twig' %}
+
+
+
+{% block body %}
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <h1 class="text-center mt-5">Administration</h1> 
+            <h2>Gérer les Annonces </h2>
+
+            {#
+                affichage du message flash 
+                'notice' est la clé de la session créée dans le controleur dans la methode addFlash
+             #}
+             {% for message in app.flashes('notice') %}
+                <p class="alert alert-success">{{ message }}</p>
+                 
+             {% endfor %}
+
+
+            <p class="text-right">
+                <a href="{{ url('admin.recrut.form') }}" class="btn btn-primary btn-lg btn-block">Ajouter une annonce</a> 
+            </p>
+            <table class="table table-striped">
+
+                <tr>
+                    <th>Poste</th>
+                    <th>Déscription</th>
+                    <th></th>
+                </tr>
+                {% for recrut in recrut %}
+                    <tr>
+                        <td>{{ recrut.poste }}</td>
+                        <td>{{ recrut.description }}</td>
+                        <td class="text-right">
+                            <a href="#" class="btn btn-warning btn-sm"> Modifier</a>
+                            <a href="#" class="btn btn-danger btn-sm">Supprimer</a>
+                        </td>
+                    </tr>
+                    
+                {% endfor %}
+            </table>
+
+            <hr>
+            <p>
+                <a href="{{ url('admin.home.index') }}" class="btn btn-info">Accueil de l'administration</a>
+            </p>
+        </div>
+    </div>
+</div>
+{% endblock %}
