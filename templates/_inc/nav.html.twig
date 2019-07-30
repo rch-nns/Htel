@@ -1,0 +1,70 @@
+
+<div class="">
+<div class="row justify-content-between mt-3">
+    <div class="d-flex justify-content-start">Suivez-nous</div>
+    <div class="d-flex justify-content-center">
+       <a href="{{ url('homepage') }}" >
+            <img src="{{ asset ('img/logo.jpg') }}" alt="Logo">
+        </a>    
+    </div>
+    <div class="d-flex justify-content-end"><a class="nav-link" href="{{ url('admin.home.index')}}">ADMINISTRATION<span class="sr-only">(current)</span></a></div>
+</div>
+</div>
+
+
+
+
+<hr>
+<nav class="navbar navbar-expand-md navbar-fixed-top navbar-light" style="background-color: #ffffff">
+    <div class="container">
+
+        <ul class="nav navbar-nav mx-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="{{ url('homepage') }}">ACCUEIL <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        SOLUTION ET EXPERTISES
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="#">Telephonie d'entreprise</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#">Réseau d'entreprise</a>
+                        <div class="dropdown-divider"></div>           
+                        <a class="dropdown-item" href="#">WIFI Professionnel</a>
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        NOTRE SOCIETE
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="{{ url('actu.index') }}">Actualités</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="{{ url('equipe.index') }}">Notre équipe</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="{{ url('historique.index') }}">Historique</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="{{ url('recrut.index') }}">Recrutement</a>
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        NOS CLIENTS
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="{{ url('client.index') }}">Opérateurs telecoms</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="{{ url('collectivite.index') }}">Collecitvités locales</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#">Divers services</a>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url('contact.index')}}">CONTACT<span class="sr-only">(current)</span></a> 
+                    </li>
+
+        </ul>
+    </div>
+</nav>
+<hr>

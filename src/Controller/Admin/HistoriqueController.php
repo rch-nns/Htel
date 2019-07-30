@@ -2,9 +2,9 @@
 
 namespace App\Controller\Admin;
 
-use App\Entity\Recrut;
-use App\Form\RecrutType;
-use App\Repository\RecrutRepository;
+use App\Entity\Historique;
+use App\Form\HistoriqueType;
+use App\Repository\HistoriqueRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -16,34 +16,34 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
  * @Route("/admin")
  */
 
-class RecrutController extends AbstractController
+class HistoriqueController extends AbstractController
 {
     //route pour lister tout les elements de la table(findAll)
     /**
-     * @Route("/recrut", name="admin.recrut.index")
+     * @Route("/historique", name="admin.historique.index")
      */
-    public function index(RecrutRepository $recrutRepository):Response
+    public function index(HistoriqueRepository $historiqueRepository):Response
     {
-        $recrut = $recrutRepository->findAll();
+        $historique = $historiqueRepository->findAll();
 
-        return $this->render('admin/recrut/index.html.twig', ['recrut' => $recrut]);
+        return $this->render('admin/historique/index.html.twig', ['historique' => $historique]);
     }
 
     //la première route : ajouter une annonce / la deuxième route : mettre à jour une annonce
 
     /**
-     * @Route("/recrut/form", name="admin.recrut.form")
-     * @Route("recrut/update/{id}", name="admin.recrut.update")
+     * @Route("/historique/form", name="admin.historique.form")
+     * @Route("historique/update/{id}", name="admin.historique.update")
      */
-    public function form(Request $request, EntityManagerInterface $entityManager, RecrutRepository $recrutRepository, int $id = null):Response
+    public function form(Request $request, EntityManagerInterface $entityManager, HistoriqueRepository $historiqueRepository, int $id = null):Response
     {
         // création du formulaire
         //::class : renvoie le namespace de la class
-        $type = RecrutType::class;
+        $type = HistoriqueType::class;
 
 
         //condition ternaire pour vérifier l'id. s'il est null on 'ajoute', si non on fait un 'update' 
-        $entity = $id ? $recrutRepository->find($id) : new Recrut();
+        $entity = $id ? $historiqueRepository->find($id) : new Historique();
 
 
         $form = $this->createForm($type, $entity);
@@ -71,11 +71,11 @@ class RecrutController extends AbstractController
             $this->addFlash('notice', $notification);
 
             //créer une redirection vers une autre page aprés la validation du formulaire
-            return $this->redirectToRoute('admin.recrut.index');
+            return $this->redirectToRoute('admin.historique.index');
 
         }
         
-        return $this->render('admin/recrut/form.html.twig', 
+        return $this->render('admin/historique/form.html.twig', 
         [
             'form' => $form->createView()
         ]);
@@ -83,12 +83,12 @@ class RecrutController extends AbstractController
 
     // route pour supprimer une annonce
     /**
-     * @Route("/recrut/delete/{id}", name="admin.recrut.delete")
+     * @Route("/historique/delete/{id}", name="admin.historique.delete")
      */
-    public function delete(int $id, EntityManagerInterface $entityManager, RecrutRepository $recrutRepository):Response
+    public function delete(int $id, EntityManagerInterface $entityManager, HistoriqueRepository $historiqueRepository):Response
     {
         //selectionner l'entité à supprimer
-        $entity = $recrutRepository->find($id);
+        $entity = $historiqueRepository->find($id);
 
         // suppression : pas de persist, remove remplace persist
         $entityManager->remove($entity);
@@ -101,6 +101,6 @@ class RecrutController extends AbstractController
         $this->addFlash('notice', $notification);
         
         //
-        return $this->redirectToRoute('admin.recrut.index');
+        return $this->redirectToRoute('admin.historique.index');
     }
 }

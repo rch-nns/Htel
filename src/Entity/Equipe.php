@@ -3,9 +3,12 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\HttpFoundation\File\File;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\EquipeRepository")
+ * @Vich\Uploadable
  */
 class Equipe
 {
@@ -25,6 +28,18 @@ class Equipe
      * @ORM\Column(type="string", length=255)
      */
     private $photo;
+
+     /** 
+     * @Vich\UploadableField(mapping="photos", fileNameProperty="photo")
+     * 
+     */
+    private $imageFile;
+
+    /**
+     * @ORM\Column(type="datetime")
+     *
+     */
+    private $updatedAt;
 
     /**
      * @ORM\Column(type="text")
@@ -53,18 +68,6 @@ class Equipe
         return $this;
     }
 
-    public function getPhoto(): ?string
-    {
-        return $this->photo;
-    }
-
-    public function setPhoto(string $photo): self
-    {
-        $this->photo = $photo;
-
-        return $this;
-    }
-
     public function getFonction(): ?string
     {
         return $this->fonction;
@@ -87,5 +90,36 @@ class Equipe
         $this->message = $message;
 
         return $this;
+    }
+
+    public function getPhoto(): ?string
+    {
+        return $this->photo;
+    }
+
+    public function setPhoto(?string $photo): self
+    {
+        $this->photo = $photo;
+
+        return $this;
+    }
+
+    public function setImageFile(?File $imageFile = null): void
+    {
+        $this->imageFile = $imageFile;
+
+        if (null !== $imageFile) {
+            $this->updatedAt = new \DateTimeImmutable();
+        }
+    }
+
+    public function getImageFile(): ?File
+    {
+        return $this->imageFile;
+    }
+
+    public function setImageName(?string $imageName): void
+    {
+        $this->imageName = $imageName;
     }
 }

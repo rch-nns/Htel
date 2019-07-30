@@ -16,7 +16,7 @@
 <div class="row mt-5 " >
 {% for equipe in results %}
 <div class="col-sm-4" id="zoom">
-<img src="{{ asset('img/' ~ equipe.photo) }}" class="img-fluid" alt="">
+<img src="{{ asset('img/' ~ equipe.photo) }}" class="img-fluid img-thumbnail" alt="">
 <h3>{{ equipe.nom | capitalize}}</h3>
 <h6>{{ equipe.fonction | capitalize}}</h6>
 <p>{{ equipe.message | capitalize}}</p>

@@ -2,9 +2,9 @@
 
 namespace App\Controller\Admin;
 
-use App\Entity\Recrut;
-use App\Form\RecrutType;
-use App\Repository\RecrutRepository;
+use App\Entity\Contact;
+use App\Form\ContactType;
+use App\Repository\ContactRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -16,34 +16,34 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
  * @Route("/admin")
  */
 
-class RecrutController extends AbstractController
+class ContactController extends AbstractController
 {
     //route pour lister tout les elements de la table(findAll)
     /**
-     * @Route("/recrut", name="admin.recrut.index")
+     * @Route("/contact", name="admin.contact.index")
      */
-    public function index(RecrutRepository $recrutRepository):Response
+    public function index(ContactRepository $contactRepository):Response
     {
-        $recrut = $recrutRepository->findAll();
+        $contact = $contactRepository->findAll();
 
-        return $this->render('admin/recrut/index.html.twig', ['recrut' => $recrut]);
+        return $this->render('admin/contact/index.html.twig', ['contact' => $contact]);
     }
 
     //la première route : ajouter une annonce / la deuxième route : mettre à jour une annonce
 
     /**
-     * @Route("/recrut/form", name="admin.recrut.form")
-     * @Route("recrut/update/{id}", name="admin.recrut.update")
+     * @Route("/contact/form", name="admin.contact.form")
+     * @Route("contact/update/{id}", name="admin.contact.update")
      */
-    public function form(Request $request, EntityManagerInterface $entityManager, RecrutRepository $recrutRepository, int $id = null):Response
+    public function form(Request $request, EntityManagerInterface $entityManager, ContactRepository $contactRepository, int $id = null):Response
     {
         // création du formulaire
         //::class : renvoie le namespace de la class
-        $type = RecrutType::class;
+        $type = ContactType::class;
 
 
         //condition ternaire pour vérifier l'id. s'il est null on 'ajoute', si non on fait un 'update' 
-        $entity = $id ? $recrutRepository->find($id) : new Recrut();
+        $entity = $id ? $contactRepository->find($id) : new Contact();
 
 
         $form = $this->createForm($type, $entity);
@@ -71,11 +71,11 @@ class RecrutController extends AbstractController
             $this->addFlash('notice', $notification);
 
             //créer une redirection vers une autre page aprés la validation du formulaire
-            return $this->redirectToRoute('admin.recrut.index');
+            return $this->redirectToRoute('admin.contact.index');
 
         }
         
-        return $this->render('admin/recrut/form.html.twig', 
+        return $this->render('admin/contact/form.html.twig', 
         [
             'form' => $form->createView()
         ]);
@@ -83,12 +83,12 @@ class RecrutController extends AbstractController
 
     // route pour supprimer une annonce
     /**
-     * @Route("/recrut/delete/{id}", name="admin.recrut.delete")
+     * @Route("/contact/delete/{id}", name="admin.contact.delete")
      */
-    public function delete(int $id, EntityManagerInterface $entityManager, RecrutRepository $recrutRepository):Response
+    public function delete(int $id, EntityManagerInterface $entityManager, ContactRepository $contactRepository):Response
     {
         //selectionner l'entité à supprimer
-        $entity = $recrutRepository->find($id);
+        $entity = $contactRepository->find($id);
 
         // suppression : pas de persist, remove remplace persist
         $entityManager->remove($entity);
@@ -101,6 +101,6 @@ class RecrutController extends AbstractController
         $this->addFlash('notice', $notification);
         
         //
-        return $this->redirectToRoute('admin.recrut.index');
+        return $this->redirectToRoute('admin.contact.index');
     }
 }

@@ -12,7 +12,7 @@
     <div class="row">
         <div class="col">
             <h1 class="text-center border border-dark mt-5 "><a href="{{ url('admin.home.index') }}" class="">ADMINISTRATION</a></h1> 
-            <h2 class="mt-5"> <u>Gérer les Annonces</u></h2>
+            <h2 class="mt-5"> <u>Gérer les Articles</u></h2>
 
             {#
                 affichage du message flash 
@@ -28,22 +28,25 @@
 
 
             <p class="text-right mt-5">
-                <a href="{{ url('admin.recrut.form') }}" class="btn btn-primary btn-lg btn-block">Ajouter une annonce</a> 
+                <a href="{{ url('admin.contact.form') }}" class="btn btn-primary btn-lg btn-block">Ajouter un article</a> 
             </p>
             <table class="table table-striped">
 
                 <tr>
-                    <th>Poste</th>
-                    <th>Déscription</th>
+                    <th>Adresse postale</th>
+                    <th>Adresse E-Mail</th>
+                    <th>Téléphone</th>
                     <th></th>
                 </tr>
-                {% for recrut in recrut %}
+                {% for contact in contact %}
                     <tr>
-                        <td>{{ recrut.poste }}</td>
-                        <td>{{ recrut.description }}</td>
+                        <td>{{ contact.adresse }}</td>
+                        <td>{{ contact.mail }}</td>
+                        <td>{{ contact.tel}}</td>
+
                         <td class="text-right">
-                            <a href="{{ url('admin.recrut.update', {id: recrut.id}) }}" class="btn btn-warning "> Modifier</a>
-                            <a href="{{ url('admin.recrut.delete', {id: recrut.id}) }}" class="btn btn-danger mt-3 btn-sm" btn-sm data-toggle="modal" data-target="#exampleModal">Supprimer</a>
+                            <a href="{{ url('admin.contact.update', {id: contact.id}) }}" class="btn btn-warning "> Modifier</a>
+                            <a href="{{ url('admin.contact.delete', {id: contact.id}) }}" class="btn btn-danger mt-3 btn-sm" btn-sm data-toggle="modal" data-target="#exampleModal">Supprimer</a>
                         </td>
                     </tr>
                     
@@ -52,7 +55,7 @@
 
             <hr>
             <p>
-                <a href="{{ url('admin.home.index') }}" class="btn btn-info">Retourner à l'Accueil</a>
+                <a href="{{ url('admin.home.index') }}" class="btn btn-info">Accueil de l'Administration</a>
             </p>
         </div>
     </div>

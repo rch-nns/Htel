@@ -16,20 +16,20 @@
 
          {{ form_start(form, { attr : { novalidate: 'novalidate' } }) }}
             <p>
-                {{ form_label(form.poste, 'Poste à proposer : ') }}
-                {{ form_widget(form.poste, { attr: { 
-                    placeholder: 'Entrez le nom du poste recherché',
+                {{ form_label(form.annee, 'Année : ') }}
+                {{ form_widget(form.annee, { attr: { 
+                    placeholder: "Entrez l'année",
                     autofocus :'autofocus'
                      } } ) }}
             </p>
             <p>
-                {{ form_label(form.description, 'Déscription du poste : ') }}
-                {{ form_widget(form.description, { attr: { 
-                    placeholder: 'Décrivez le poste recherché'} } ) }}
+                {{ form_label(form.text, "Déscription de l'historique : ") }}
+                {{ form_widget(form.text, { attr: { 
+                    placeholder: ''} } ) }}
             </p>
 
             <p>
-                <button class=" btn btn-primary">Valider</button>
+            <button class=" btn btn-primary">Valider</button>
             </p>
          {{ form_end(form) }}
 

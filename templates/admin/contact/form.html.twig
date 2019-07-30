@@ -16,20 +16,25 @@
 
          {{ form_start(form, { attr : { novalidate: 'novalidate' } }) }}
             <p>
-                {{ form_label(form.poste, 'Poste à proposer : ') }}
-                {{ form_widget(form.poste, { attr: { 
-                    placeholder: 'Entrez le nom du poste recherché',
+                {{ form_label(form.adresse, 'Adresse postale : ') }}
+                {{ form_widget(form.adresse, { attr: { 
+                    placeholder: "Entrez l'adresse",
                     autofocus :'autofocus'
                      } } ) }}
             </p>
             <p>
-                {{ form_label(form.description, 'Déscription du poste : ') }}
-                {{ form_widget(form.description, { attr: { 
+                {{ form_label(form.mail, 'Adresse E-Mail : ') }}
+                {{ form_widget(form.mail, { attr: { 
                     placeholder: 'Décrivez le poste recherché'} } ) }}
+            </p>
+            <p>
+                {{ form_label(form.tel, 'Telephone : ') }}
+                {{ form_widget(form.tel, { attr: { 
+                    placeholder: 'Entrez le numero de telephone'} } ) }}
             </p>
 
             <p>
-                <button class=" btn btn-primary">Valider</button>
+            <button class=" btn btn-primary">Valider</button>
             </p>
          {{ form_end(form) }}
 
