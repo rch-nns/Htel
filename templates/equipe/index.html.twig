@@ -8,22 +8,26 @@
    <div class="row">
      <div class="col mt-4">
 
-       <h2>Quelques noms de notre équipe :</h2> 
+       <h2 style="color:#415A97">Quelques noms de notre équipe :</h2> 
        <hr class="">
      </div>
    <div>
 
-<div class="row mt-5 " >
+<div class="row mt-5 p-2">
 {% for equipe in results %}
-<div class="col-sm-4" id="zoom">
-<img src="{{ asset('img/' ~ equipe.photo) }}" class="img-fluid img-thumbnail" alt="">
-<h3>{{ equipe.nom | capitalize}}</h3>
-<h6>{{ equipe.fonction | capitalize}}</h6>
-<p>{{ equipe.message | capitalize}}</p>
+<div class="col-sm-4 p-2">
+  <div id="zoom" class="text-center">
+    <h3>{{ equipe.nom }}</h3>
+    <h6>{{ equipe.fonction | capitalize}}</h6>
+    <img src="{{ asset('img/' ~ equipe.photo) }}" class="img-fluid img-thumbnail center-block" style="height: 270px; width: 70%" alt="">
+  </div>
+  <p class="mt-3">{{ equipe.message | capitalize}}</p>
 </div>
 
 
 {% endfor %}
+</div>
+</div>
 </div>
 </div>
 {% endblock %}

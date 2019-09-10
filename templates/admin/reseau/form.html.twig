@@ -1,0 +1,49 @@
+{% extends "base.html.twig" %}
+
+{% block body %}
+<div class="container">
+<div class="row">
+    <div class="col">
+        <h1 class="text-center mt-5">Administration</h1>
+        <a href="{{ url('admin.home.index') }}" class=""> <u>Retour à l'Accueil</u></a>
+        <h2 class="mt-5">Ajouter / Modifier un Article</h2>
+
+         {# 
+            - form_start/end : affichage du formulaire 
+            - form : est la clé envoyé par le controlleur
+            - novalidate : désactiver la validation html
+         #}
+
+         {{ form_start(form, { attr : { novalidate: 'novalidate' } }) }}
+            <p>
+                {{ form_label(form.titre, 'titre : ') }}
+                {{ form_widget(form.titre, { attr: { 
+                    placeholder: "Entrez le titre",
+                    autofocus :'autofocus'
+                     } } ) }}
+            </p>
+            <p>
+                {{ form_label(form.soustitre, "Sous-titre : ") }}
+                {{ form_widget(form.soustitre, { attr: { 
+                    placeholder: ''} } ) }}
+            </p>
+            <p>
+                {{ form_label(form.texte, "Texte : ") }}
+                {{ form_widget(form.texte, { attr: { 
+                    placeholder: ''} } ) }}
+            </p>
+            <p>
+                {{ form_label(form.imageFile, "Image : ") }}
+                {{ form_widget(form.imageFile, { attr: { 
+                    placeholder: ''} } ) }}
+            </p>
+
+            <p>
+            <button class=" btn btn-primary">Valider</button>
+            </p>
+         {{ form_end(form) }}
+
+    </div>
+</div>
+</div>
+{% endblock %}

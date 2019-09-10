@@ -73,7 +73,7 @@ class Equipe
         return $this->fonction;
     }
 
-    public function setFonction(string $fonction): self
+    public function setFonction(?string $fonction): self
     {
         $this->fonction = $fonction;
 
@@ -85,7 +85,7 @@ class Equipe
         return $this->message;
     }
 
-    public function setMessage(string $message): self
+    public function setMessage(?string $message): self
     {
         $this->message = $message;
 

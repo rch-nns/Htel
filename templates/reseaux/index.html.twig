@@ -1,0 +1,126 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Réseaux telecoms{% endblock %}
+
+{% block body %}
+
+<div class="shine">
+    <img src="{{ asset('img/fibre4.jpg') }}" style="height: 250px; width: 100%" class="img-fluid" alt="">
+</div>
+
+{% for reseau in results %}
+
+
+
+<div class="container mt-5">
+
+
+    <h1 class="cool">{{ reseau.titre }}</h1>
+    <hr>
+
+    <div>
+        <div class="d-flex justify-content-center mt-5"> <h5>{{ reseau.soustitre }}</h5>
+        </div>
+    <div>
+        <div class="">
+            <h6>{{ reseau.texte }}</h6>
+            <img class="img-fluid img-thumbnail mt-3" src="{{ asset('img/' ~ reseau.image) }}" alt="shema">
+        </div>
+
+
+
+{% endfor %}
+        
+        <!--
+        <div class="mt-5">
+        <h1>Domaine d'intervention </h1>
+        <hr>
+        <h6 class="mt-5"> La fibre optique est la technologie la plus performante pour transporter des données. 
+        Celles-ci sont transmises à la vitesse de la lumière, avec une bande passante qui peut être quasi illimitée. Sa rapidité, 
+        son débit parfaitement symétrique et sa fiabilité ont déjà séduit un grand nombre d'entreprises.</h6>
+    </div>
+
+    <div class="row mt-5">
+        <div id="" class="col-md-6">
+           <div class=" mb-3">
+                <h4 class="">Réseau FTT</h4>
+                <UL class="">
+                    <LI>le FTTH : fiber to the home (fibre jusqu’à l’abonné). Il s’agit de la technologie la plus efficace à long terme (allant jusqu’à du 10Gbit/s)</LI>
+                    <br>
+                    <LI>le FTTLA : fiber to the last amplifier Cette technologie utilise comme dernier lien le câble coaxial. C’est l’une des solutions les plus déployées aujourd’hui pour accéder au 30 Mbit / s (au très haut débit). Cette solution a l’inconvénient d’être moins pérenne à long terme.</LI>
+                    <br>
+                    <li>le FTTO : fiber to the office Il s’agit de l’offre dédiée aux entreprises.</li>
+                    <br>
+                    <li>le FTTDP : Fiber to the distribution point. Cette technologie consiste à combiner la fibre optique et le cuivre installée (max 300m) afin de permettre l’accès au THD (très haut débit). Il s’agit du VDSL 2</li>
+                </UL>   
+           </div>
+        </div>
+        <div id="" class="col-md-6">
+           <div class="card bg-light mb-3">              
+              <div class="img-fluid">                  
+                   <img src="img/ftt.png" alt="installation réseau d'esntreprise"
+              style="height: 370px; width: 100%; display: block">                  
+              </div>
+           </div>
+        </div>
+    </div>
+
+
+
+    <div class="row mt-5">
+        <div id="" class="col-md-6">
+           <div class="card bg-light mb-3">              
+              <div class="img-fluid">                  
+                   <img src="{{ asset ('img/cuivre.jpg') }}" class="rounded" alt="installation réseau d'esntreprise"
+              style="height: 350px; width: 100%; display: block">                  
+              </div>
+           </div>
+        </div>
+        <div id="ops" class="col-md-6">
+           <div class=" mb-3">
+               <h4 class="">Réseau Cuivre</h4>
+               
+               <p class="card-text">Avec une offre qualitative de services, HTel joue un rôle majeur auprès des opérateurs télécoms. En France, 
+                   plus d’une dizaine de grandes sociétés nous font confiance pour la construction des réseaux fibre.Avec une offre qualitative de services, HTel joue un rôle majeur auprès des opérateurs télécoms. En France, 
+                   plus d’une dizaine de grandes sociétés nous font confiance pour la construction des réseaux fibre.Avec une offre qualitative de services, HTel joue un rôle majeur auprès des opérateurs télécoms. En France, 
+                   plus d’une dizaine de grandes sociétés nous font confiance pour la construction des réseaux fibre.
+                </p>
+           </div>
+        </div>
+    </div>
+
+
+    <div class="row mt-5">
+        <div id="" class="col-md-6">
+           <div class=" mb-3">
+               <h4 class="">Réseau Mobile</h4>
+               
+               <p class="card-text">Avec une offre qualitative de services, HTel joue un rôle majeur auprès des opérateurs télécoms. En France, 
+                   plus d’une dizaine de grandes sociétés nous font confiance pour la construction des réseaux fibre.Avec une offre qualitative de services, HTel joue un rôle majeur auprès des opérateurs télécoms. En France, 
+                   plus d’une dizaine de grandes sociétés nous font confiance pour la construction des réseaux fibre.Avec une offre qualitative de services, HTel joue un rôle majeur auprès des opérateurs télécoms. En France, 
+                   plus d’une dizaine de grandes sociétés nous font confiance pour la construction des réseaux fibre.</p>
+           </div>
+        </div>
+        <div id="" class="col-md-6">
+           <div class="card bg-light mb-3">              
+              <div class="img-fluid">                  
+                   <img src="img/mobile.png" alt="installation réseau d'esntreprise"
+              style="height: 350px; width: 100%; display: block">                  
+              </div>
+           </div>
+        </div>
+    </div>
+    -->
+
+
+
+    
+
+</div>
+</div>
+</div>
+
+
+
+
+{% endblock %}

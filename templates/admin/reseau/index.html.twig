@@ -1,0 +1,64 @@
+{% extends "base.html.twig" %}
+
+{% block javascripts %}
+
+    <script src="{{ asset('build/js/deleteModal.js') }}"></script>
+
+{% endblock %}
+
+
+{% block body %}
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <h1 class="text-center border border-dark mt-5 "><a href="{{ url('admin.home.index') }}" class="">ADMINISTRATION</a></h1> 
+            <h2 class="mt-5"> <u>Gérer les Articles</u></h2>
+
+            {#
+                affichage du message flash 
+                'notice' est la clé de la session créée dans le controleur dans la methode addFlash
+             #}
+             {% for message in app.flashes('notice') %}
+                <p class="alert alert-success">{{ message }}</p>
+                 
+             {% endfor %}
+
+             {# inclusion modal #}
+             {% include '_inc/modal.html.twig' %}
+
+
+            <p class="text-right mt-5">
+                <a href="{{ url('admin.reseau.form') }}" class="btn btn-primary btn-lg btn-block">Ajouter un article</a> 
+            </p>
+            <table class="table table-striped">
+
+                <tr>
+                    <th>Titre</th>
+                    <th>Sous-titre</th>
+                    <th>Texte</th>
+                    <th>Image</th>
+                    <th></th>
+                </tr>
+                {% for reseau in reseau %}
+                    <tr>
+                        <td>{{ reseau.titre }}</td>
+                        <td>{{ reseau.soustitre }}</td>
+                        <td>{{ reseau.texte }}</td>
+                        <td>{{ reseau.image }}</td>
+                        <td class="text-right">
+                            <a href="{{ url('admin.reseau.update', {id: reseau.id}) }}" class="btn btn-warning "> Modifier</a>
+                            <a href="{{ url('admin.reseau.delete', {id: reseau.id}) }}" class="btn btn-danger mt-3 btn-sm" btn-sm data-toggle="modal" data-target="#exampleModal">Supprimer</a>
+                        </td>
+                    </tr>
+                    
+                {% endfor %}
+            </table>
+
+            <hr>
+            <p>
+                <a href="{{ url('admin.home.index') }}" class="btn btn-info">Accueil de l'Administration</a>
+            </p>
+        </div>
+    </div>
+</div>
+{% endblock %}

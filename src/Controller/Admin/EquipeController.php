@@ -62,7 +62,7 @@ class EquipeController extends AbstractController
             $entityManager->flush();
 
             //message de confirmation
-            $notification = $id ? "l'annonce a été mise à jour" : "votre annonce a été ajouté";
+            $notification = $id ? ' votre annonce a été mise à jour' : 'votre annonce a été ajouté';
 
             /**
              * message flash : information stockées dans la session et détruite après la lecture.

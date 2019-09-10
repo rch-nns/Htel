@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Contactez-nous{% endblock %}
+
+{% block body %}
+<div class="container mt-3" style="color: grey">
+<h1 class="mt-5">Contactez-nous :</h1>
+    <div id="contactForm" class="mt-5">
+    {{ form_start(form) }}
+    <div class="row">
+        <div class="col">{{ form_row(form.firstname) }}</div>
+        <div class="col">{{ form_row(form.lastname) }}</div>        
+    </div>
+    <div class="row">
+        <div class="col">{{ form_row(form.phone) }}</div>
+        <div class="col">{{ form_row(form.email) }}</div>       
+    </div>
+    {{ form_rest(form) }}
+    <div class="form-group">
+    <bouton class="btn btn-primary">Envoyer</bouton>
+    </div>
+{{ form_end(form) }}
+</div>
+</div>
+{% endblock %}
+
+
+
+
+
+

@@ -1,70 +1,107 @@
+<link rel="stylesheet" href="{{ asset('build/css/app.css') }}">
+<link rel="stylesheet" href="{{ asset('build/css/bootstrap.css') }}">
 
-<div class="">
-<div class="row justify-content-between mt-3">
-    <div class="d-flex justify-content-start">Suivez-nous</div>
-    <div class="d-flex justify-content-center">
-       <a href="{{ url('homepage') }}" >
-            <img src="{{ asset ('img/logo.jpg') }}" alt="Logo">
-        </a>    
+<div class="d-flex justify-content-between">
+<div class="d-flex flex-row">
+    <div class="p-2">
+        <a href="https://www.facebook.com" target="_blank" >
+            <img id="zoom" src="{{ asset('img/flogo.jpg') }}" alt="Logo">
+        </a>
+        <a href="https://www.twitter.com" target="_blank" >
+            <img id="zoom" src="{{ asset('img/t.jpg') }}" alt="Logo">
+        </a>
+        <a href="https://www.instagram.com" target="_blank">
+            <img id="zoom" src="{{ asset('img/i.jpg') }}" alt="Logo">
+        </a>
+        <a href="https://www.linkedin.com" target="_blank">
+            <img id="zoom" src="{{ asset('img/linkedin.png') }}" alt="Logo">
+        </a>
+        <a href="https://www.youtube.com" target="_blank">
+            <img id="zoom" src="{{ asset('img/youtube.jpg') }}" alt="Logo">
+        </a>
     </div>
-    <div class="d-flex justify-content-end"><a class="nav-link" href="{{ url('admin.home.index')}}">ADMINISTRATION<span class="sr-only">(current)</span></a></div>
+</div>
+<div class="d-flex flex-row">
+  <div class="p-2">
+    <a href="{{ url('homepage') }}" >
+            <img src="{{ asset('img/logo.jpg') }}" alt="Logo">
+    </a></div>
+</div>
+<div class="d-flex flex-row-reverse">
+    <div class="p-2">
+        <ul class="nav navbar-nav nav navbar-right">  
+            <li>
+                        {# teste si l'utuilisateur est connecté ou pas #}
+                        {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+                            <a href="{{ logout_url() }}">Se Déconnecter </a>
+                         {% else %}
+                            <a href="{{ url('security.login')}}">Se Connecter </a>                                      
+                        {% endif %}
+             </li> 
+             <li>          
+                <a href="{{ url('registration.register')}}">S'enregistrer</a>
+            </li>
+            <li>
+                <a href="{{ url('admin.home.index')}}" >Admin</a>
+            </li>
+        </ul>  
+  </div>
 </div>
 </div>
 
 
 
 
-<hr>
-<nav class="navbar navbar-expand-md navbar-fixed-top navbar-light" style="background-color: #ffffff">
+<nav class="navbar navbar-expand-md navbar-fixed-top navbar-dark bg-dark" style=" color:orange; height:350 px; background-image:url('{{ asset('img/bg7.jpg') }}'); background-repeat: repeat;">
     <div class="container">
 
         <ul class="nav navbar-nav mx-auto">
                     <li class="nav-item active">
-                        <a class="nav-link" href="{{ url('homepage') }}">ACCUEIL <span class="sr-only">(current)</span></a>
+                        <a class="nav-link" href="{{ url('homepage') }}"><img src="{{ asset ('img/home1.png') }}" style="height: 40px; width: 40px" alt="Home"></a>
                     </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <li class="nav-item dropdown" style="margin-top: 15px">
+                        <a class="nav-link dropdown-toggle" style="color: orange" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         SOLUTION ET EXPERTISES
                         </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="#">Telephonie d'entreprise</a>
+                        
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown" style="background-image:url('{{ asset('img/fibre3.jpg') }}'); background-repeat: repeat">
+                        <a class="dropdown-item" style="color: orange" href="{{ url('reseaux.index') }}" style="background-color: black">Réseaux Telecom</a>                       
                         <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="#">Réseau d'entreprise</a>
+                        <a class="dropdown-item" style="color: orange" href="{{ url('telephonie.index') }}">Telephonie d'entreprise</a>
                         <div class="dropdown-divider"></div>           
-                        <a class="dropdown-item" href="#">WIFI Professionnel</a>
-                        </div>
+                        <a class="dropdown-item" style="color: orange" href="{{ url('wifi.index') }}">WIFI Professionnel</a>
+                    </div>
                     </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <li class="nav-item dropdown" style="margin-top: 15px">
+                        <a class="nav-link dropdown-toggle" style="color: orange" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         NOTRE SOCIETE
                         </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="{{ url('actu.index') }}">Actualités</a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown" style="background-image:url('{{ asset('img/fibre3.jpg') }}'); background-repeat: repeat">
+                        <a class="dropdown-item" style="color: orange" href="{{ url('actu.index') }}">Actualités</a>
                         <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="{{ url('equipe.index') }}">Notre équipe</a>
+                        <a class="dropdown-item" style="color: orange" href="{{ url('equipe.index') }}">Notre équipe</a>
                         <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="{{ url('historique.index') }}">Historique</a>
+                        <a class="dropdown-item" style="color: orange" href="{{ url('historique.index') }}">Historique</a>
                         <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="{{ url('recrut.index') }}">Recrutement</a>
+                        <a class="dropdown-item" style="color: orange" href="{{ url('recrut.index') }}">Recrutement</a>
                         </div>
                     </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <li class="nav-item dropdown" style="margin-top: 15px">
+                        <a class="nav-link dropdown-toggle" style="color: orange" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         NOS CLIENTS
                         </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="{{ url('client.index') }}">Opérateurs telecoms</a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown" style="background-image:url('{{ asset('img/fibre3.jpg') }}'); background-repeat: repeat">
+                        <a class="dropdown-item" style="color: orange" href="{{ url('client.index') }}">Opérateurs telecoms</a>
                         <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="{{ url('collectivite.index') }}">Collecitvités locales</a>
+                        <a class="dropdown-item" style="color: orange" href="{{ url('collectivite.index') }}">Collecitvités locales</a>
                         <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="#">Divers services</a>
+                        <a class="dropdown-item" style="color: orange" href="{{ url('diver.index') }}">Divers services</a>
                         </div>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ url('contact.index')}}">CONTACT<span class="sr-only">(current)</span></a> 
+                    <li class="nav-item" style="margin-top: 15px">
+                        <a class="nav-link" style="color: orange" href="{{ url('contact.index')}}">CONTACT<span class="sr-only">(current)</span></a> 
                     </li>
 
         </ul>
     </div>
 </nav>
-<hr>
