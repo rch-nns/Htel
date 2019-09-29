@@ -1,0 +1,48 @@
+{% extends 'base.html.twig' %}
+
+{% block javascripts %}
+
+<script src="{{ asset('build/js/deleteModal.js') }}"></script>
+
+{% endblock %}
+
+{% block title %}Outillages{% endblock %}
+
+{% block body %}
+<div class="container">
+<h1 class="my-3">Liste des outillages</h1>
+
+<a href="{{ url('outillage.create.index')}}" class="btn btn-primary">Ajouter un nouvel outil</a>
+
+{% for message in app.flashes('notice') %}
+  <p class="alert alert-success text-center mt-3">{{ message }}</p>
+{% endfor %}
+
+{# inclusion modal #}
+{% include '_inc/modal.html.twig' %}
+
+<div class="row mt-5">
+{% for materiel in materiels %}
+<div class="col-md-4 flash">
+           <div class="card bg-light mb-3">
+           <div class="card-header text-center">
+           {{ materiel.nom}}
+           </div>
+            <a href="{{ path('outillage.show.index', {'nom': materiel.nom}) }}">
+              <img src="{{ asset('img/' ~ materiel.image) }}" class="img-fluid img-thumbnail center-block" style="" alt="">
+            </a>
+              <div class="card-body" style="">
+              <table class="table">
+                   <p class="card-text">{{ materiel.description}}</p>
+                   <a href="{{ path('outillage.show.index', {'nom': materiel.nom}) }}" class="btn btn-outline-primary btn-sm ">Afficher</a>
+                   <a href="{{ url('outillage.update.index', {id: materiel.id}) }}" class="btn btn-outline-warning btn-sm m-3"> Modifier</a>
+                   <a href="{{ url('outillage.delete.index', {id: materiel.id}) }}" class="btn btn-outline-danger btn-sm m-3" btn-sm data-toggle="modal" data-target="#exampleModal"> Supprimer</a>
+              </table>
+              </div>
+           </div>
+        </div>
+    
+{% endfor %}
+</div>
+</div>
+{% endblock %}

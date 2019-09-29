@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello BookController!{% endblock %}
+
+{% block body %}
+
+<div class="container">
+
+{% for message in app.flashes('notice') %}
+<p class="alert alert-success mt-3 text-center">{{ message }}</p>
+                 
+{% endfor %}
+
+<h1 class="my-3 text-center">Bienvenue dans votre plateforme de réservation</h1>
+<h3 class="my-3">Liste des outillage :</h3>
+
+<div class="row">
+{% for materiel in materiels %}
+<div class="col-md-4 my-3 flash">
+           <div class="card bg-light mb-3">
+           <div class="card-header text-center">
+           <h6>{{ materiel.nom}}</h6>
+           </div>
+            <a href="{{ path('book.show.index', {'nom': materiel.nom}) }}">
+              <img src="{{ asset('img/' ~ materiel.image) }}" class="img-fluid img-thumbnail center-block" style="" alt="">
+            </a>
+              <div class="card-body" style="">
+                   <p class="card-text">{{ materiel.description}}</p>
+                   <a href="{{ path('book.show.index', {'nom': materiel.nom}) }}" class="btn btn-outline-primary btn-sm">Afficher</a>
+                   <a href="{{ path('booking', {'nom': materiel.nom}) }}" class="btn btn-outline-primary btn-sm">Réserver</a>
+              </div>
+           </div>
+        </div>
+    
+{% endfor %}
+</div>
+</div>
+
+{% endblock %}

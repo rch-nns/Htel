@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Réserver vos outils {% endblock %}
+
+{% block body %}
+<div class="container">
+    <h1>Réserver vos outils</h1>
+
+    {{ form_start(form) }}
+    <div class="alert alert-light">
+        <h2>Indiquez la durée d'exploitation de votre <span style="color: green">{{ materiel.nom}}</span></h2>
+        <div class="row">
+        <div class="col">
+            {{form_row(form.startDate)}}
+        </div>
+        <div class="col">
+            {{form_row(form.endDate)}}
+        </div>
+        </div>
+        <h2>Informations supplémentaires :</h2>
+        {{ form_row(form.comment)}}
+    </div>
+
+        <button type="submit"  class="btn btn-success">Valider</button>
+
+
+    {{ form_end(form) }}
+
+</div>
+
+{% endblock %}

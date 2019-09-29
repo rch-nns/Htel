@@ -35,14 +35,16 @@
                         {% if is_granted('IS_AUTHENTICATED_FULLY') %}
                             <a href="{{ logout_url() }}">Se Déconnecter </a>
                          {% else %}
-                            <a href="{{ url('security.login')}}">Se Connecter </a>                                      
+                            <a href="{{ url('security.login')}}">Se Connecter </a> <br>
+                            <a href="{{ url('registration.register')}}">S'enregistrer</a>                                     
                         {% endif %}
              </li> 
              <li>          
-                <a href="{{ url('registration.register')}}">S'enregistrer</a>
+               
             </li>
             <li>
-                <a href="{{ url('admin.home.index')}}" >Admin</a>
+                <a href="{{ url('admin.home.index')}}" >Admin</a> /
+                <a href="{{ url('book.index')}}" >Users</a>
             </li>
         </ul>  
   </div>

@@ -7,6 +7,7 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Vich\UploaderBundle\Form\Type\VichImageType;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 
 class ReseauType extends AbstractType
 {
@@ -15,7 +16,11 @@ class ReseauType extends AbstractType
         $builder
             ->add('titre')
             ->add('soustitre')
-            ->add('texte')
+            ->add('texte', TextareaType::class, [
+                'attr' => [
+                    'placeholder' =>"Entrez votre texte" 
+                          ]           
+                    ])
             ->add('imageFile', VichImageType::class,
             [
                 'download_label' => "Parcourir",

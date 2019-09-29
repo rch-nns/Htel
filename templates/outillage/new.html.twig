@@ -1,0 +1,22 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Nouvel outil{% endblock %}
+
+{% block body %}
+<div class="container">
+    <h1>Ajouter/ Modifier un outil</h1>
+
+    {{ form_start(form) }}
+
+    {{ form_widget(form) }}
+
+
+ <p>
+    <button class=" btn btn-primary">Valider</button>
+</p>
+    {{ form_end(form) }}
+</div>
+
+
+
+{% endblock %}

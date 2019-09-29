@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Réservations{% endblock %}
+
+{% block body %}
+<div class="container">
+<h1 class="mt-5">Liste des résérvations :</h1>
+
+{% for message in app.flashes('notice') %}
+  <p class="alert alert-success text-center mt-3">{{ message }}</p>
+{% endfor %}
+
+{% for booking in bookings %}
+
+<div class="mt-5">
+    <h2>Résérvation : n°{{ booking.id }}</h2>
+    <h5>Date de prise en charge : {{ booking.startDate | date('d/m/y') }}</h5>
+    <h5>Date de réstitution : {{ booking.endDate | date('d/m/y') }}</h5>
+    <h5>Date de la résérvation : {{ booking.createdAt | date('d/m/y') }}</h5>
+    <h5>Informations supplémentaire : {{ booking.comment }}</h5>
+
+    <a href="{{ url('admin.booking.delete', {id: booking.id}) }}" class="btn btn-danger mt-3 btn-sm">Supprimer</a>
+
+</div>
+{% endfor %}
+
+
+
+</div>
+{% endblock %}

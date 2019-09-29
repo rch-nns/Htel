@@ -1,0 +1,28 @@
+{% extends "base.html.twig" %}
+
+
+
+{% block title %}
+{{ materiel.nom}}
+{% endblock %}
+
+{% block body %}
+
+<div class="container">
+
+{# inclusion modal #}
+{% include '_inc/modal.html.twig' %}
+
+<table>
+    <h1>{{ materiel.nom}}</h1>
+    <p>{{ materiel.description }}</p>
+    <img src="{{ asset('img/' ~ materiel.image) }}" class="img-fluid img-thumbnail center-block" style="height: 270px; width: 70%" alt=""> <br>
+    <a href="{{ url('outillage.update.index', {id: materiel.id}) }}" class="btn btn-warning my-3"> Modifier</a>
+    <a href="{{ url('outillage.delete.index', {id: materiel.id}) }}" class="btn btn-danger m-3" btn-sm data-toggle="modal" data-target="#exampleModal"> Supprimer</a>
+</table>
+</div>
+{% endblock %}
+
+{% block javascripts %}
+<script src="{{ asset('build/js/deleteModal.js') }}"></script>
+{% endblock %}

@@ -1,0 +1,20 @@
+{% extends "base.html.twig" %}
+
+{% block title %}
+{{ materiel.nom}}
+{% endblock %}
+
+{% block body %}
+
+<div class="ad-title" style="background-image:">
+
+
+</div>
+<div class="container">
+<h1>{{ materiel.nom}}</h1>
+<p>{{ materiel.description }}</p>
+<img src="{{ asset('img/' ~ materiel.image) }}" class="img-fluid img-thumbnail center-block" style="height: 270px; width: 70%" alt=""><br>
+<a href="{{ path('booking', {'nom': materiel.nom}) }}" class="btn btn-primary my-3">Réserver</a>
+
+</div>
+{% endblock %}

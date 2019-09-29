@@ -9,23 +9,20 @@ class Mailcontact
     /**
      * @var string|null
      * @Assert\NotBlank
-     * @Assert\Lenght(min=2, max=100)
      */
     private $firstname;
 
     /**
      * @var string|null
      * @Assert\NotBlank
-     * @Assert\Lenght(min=2, max=100)
      */
     private $lastname;
 
     /**
      * @var string|null
      * @Assert\NotBlank
-     * @Assert\Regex(
      * pattern="/[0-9]{10}/"
-     * )
+     * 
      */
     private $phone;
 
@@ -39,7 +36,6 @@ class Mailcontact
     /**
      * @var string|null
      * @Assert\NotBlank
-     * @Assert\Lenght(min=10)
      */
     private $message;
 
@@ -99,7 +95,7 @@ class Mailcontact
      * @return Contact
      */
 
-    public function setPhone(?int $tel): self
+    public function setPhone(?int $phone): self
     {
         $this->phone = $phone;
 

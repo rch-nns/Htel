@@ -1,0 +1,25 @@
+{% extends "base.html.twig" %}
+
+{% block title %}{% endblock %}
+
+{% block body %}
+
+<div class="container">
+<h1>Résérvation n°{{booking.id}}</h1>
+<div class="row">
+    <div class="col">
+        <div class="alert alert-light">
+        <h2>Détails</h2>
+        <div class="row">
+            <h5 class="">Numéro : {{booking.id}}</h5>
+            <h5 class="">Date de prise en charge : {{booking.startDate | date('d/m/y')}}</h5>
+            <h5 class="">Date de réstitution : {{booking.endDate | date('d/m/y')}}</h5>
+            <h5 class="">Commentaire : {{booking.comment}}</h5>
+            <h5 class="">Identifian du technicien : </h5>
+        </div>
+        </div>
+    </div>
+    <div class="col"></div>
+</div>
+</div>
+{% endblock %}

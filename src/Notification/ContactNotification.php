@@ -2,6 +2,7 @@
 namespace App\Notification;
 
 use Twig\Environment;
+use App\Entity\Contact;
 use App\Entity\MailContact;
 use App\Notification\ContactNotification;
 
@@ -22,7 +23,7 @@ class ContactNotification {
         $this->mailer = $mailer;
         $this->renderer = $renderer;
     }
-
+    
     public function notify(Contact $contact) {
         $message = (new \Swift_Message('Agence :'))
         ->setForm('noreply@agence.fr')
